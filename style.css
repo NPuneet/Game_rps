@@ -23,21 +23,24 @@ body {
   border: 2.2px solid white;
   border-radius: 13px;
   height: 23%;
-  gap: 35rem;
   align-items: center;
   padding: 2rem;
-  margin-top: .5rem;
+  margin-top: .8rem;
   background: rgba(28, 48, 120, 0);
+  justify-content: space-between;
 }
 .title {
   color: #fff;
   font-size: 2.5rem;
   letter-spacing: 5px;
   font-weight: 600;
+  width: 10rem;
 }
 .score {
   display: flex;
   gap: 1rem;
+  position: relative;
+  left: 1rem;
 }
 .score .cscore,
 .uscore {
@@ -49,6 +52,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+ 
 }
 .score p {
   color: #656565;
@@ -179,15 +183,10 @@ li {
   font-size: 0.9125rem;
 }
 
-.close-btn {
-  background: transparent;
-  display: flex;
-  margin-left: 0%;
-  border-color: transparent;
+.close-btn {  
   position: absolute;
+  border-color: transparent;
   border-radius: 50%;
-  bottom: .1rem;
-  z-index: 4;
 
 }
 
@@ -196,8 +195,10 @@ li {
   border-radius: 50%;
   border: 2px solid #fff;
   background-color: #fff;
+  position: absolute;
+  bottom: 11rem;
+  left: 15.5rem;
 }
-
 ul {
   list-style-type: none; 
 }
