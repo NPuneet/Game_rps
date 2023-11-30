@@ -66,14 +66,12 @@ body {
   color: #252525;
   font-size: 4rem;
   padding-top: 9px;
-  /* letter-spacing: 2px; */
+
   font-style: normal;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   line-height: normal;
 }
-
-/* gamesection */
 .handchoices {
   background-image: url("assets/tri.png");
   background-repeat: no-repeat;
@@ -224,6 +222,8 @@ li {
 }
 .winsection {
   display: none;
+  position: fixed;
+  bottom: 4rem;
 }
 .resultbox {
   width: 70%;
@@ -262,7 +262,6 @@ li {
   height: 14rem;
   transform: translate(0%, 0%);
 }
-
 .heading {
   font-size: 1.3625rem;
   color: #fff;
@@ -297,7 +296,6 @@ li {
   font-size: 1.5625rem;
   letter-spacing: 0.15625rem;
 }
-
 .cupsection {
   position: relative;
   width: 100%;
@@ -356,7 +354,7 @@ li {
   margin-top: 0.5rem;
   margin-bottom: 3rem;
 }
-.gg {
+.displaysec {
   display: flex;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
@@ -370,13 +368,13 @@ li {
   position: fixed;
   top: 32%;
 }
-.gg h1 {
+.displaysec h1 {
   letter-spacing: 4px;
   font-weight: 700;
   font-size: 2.8rem;
   font-family: "Roboto", sans-serif;
 }
-.gg h2 {
+.displaysec h2 {
   font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: 3px;
@@ -438,9 +436,9 @@ li {
   animation-delay: calc(1s * var(--i));
 }
 
-.pulse2{
-  visibility: hidden; 
- }
- .pulse1{
+.pulse2 {
   visibility: hidden;
- }
+}
+.pulse1 {
+  visibility: hidden;
+}
