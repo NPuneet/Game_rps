@@ -16,7 +16,6 @@ body {
   display: flex;
   align-items: center;
 }
-
 .top {
   display: flex;
   width: 73%;
@@ -44,7 +43,7 @@ body {
 }
 .score .cscore,
 .uscore {
-  width: 8.5rem;
+  width: 10rem;
   height: 9rem;
   background-color: #fff;
   border-radius: 9px;
@@ -52,20 +51,22 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  letter-spacing: 3.5px;
 }
 .score p {
   color: #656565;
   font-size: 1.2rem;
   font-style: normal;
   padding-top: 12px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: normal;
-  letter-spacing: 1px;
+  letter-spacing: 3.5px;
 }
 .score h1 {
   color: #252525;
   font-size: 4rem;
   padding-top: 9px;
+  /* letter-spacing: 2px; */
   font-style: normal;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
@@ -82,32 +83,43 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   background-position: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
-.rock {
+#rock {
   margin-right: 4rem;
 }
-.scissor {
+#scissor {
   margin-left: 4rem;
 }
-.paper {
+#paper {
   margin-top: 4rem;
 }
-.handchoices .hand {
-  cursor: pointer;
-  transition: 0.25s;
-}
-.handchoices .hand:hover {
+#rock:hover,
+#paper:hover,
+#scissor:hover {
   transform: scale(1.2);
 }
 .handchoices img {
+  cursor: pointer;
   width: 12rem;
 }
-
 .rulebutton {
   width: 7rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.625rem;
+  border: 2px solid #fff;
+  background-color: #8cc461;
+  height: 2rem;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.13125rem;
+}
+.next {
+  width: 7rem;
+  display: none;
   justify-content: center;
   align-items: center;
   border-radius: 0.625rem;
@@ -131,7 +143,8 @@ body {
   bottom: 2rem;
 }
 
-.rulebutton:hover {
+.rulebutton:hover,
+.next:hover {
   background-color: rgb(177, 207, 44);
 }
 
@@ -156,7 +169,6 @@ body {
   width: 18.375rem;
   height: 22.3125rem;
   margin-right: 1rem;
-
   position: fixed;
   bottom: 5rem;
   cursor: pointer;
@@ -181,13 +193,11 @@ li {
   padding: 0.5rem;
   font-size: 0.9125rem;
 }
-
 .close-btn {
   position: absolute;
   border-color: transparent;
   border-radius: 50%;
 }
-
 .close-btn img {
   width: 45px;
   border-radius: 50%;
@@ -200,7 +210,6 @@ li {
 ul {
   list-style-type: none;
 }
-
 li::before {
   content: "\25A0";
   color: #ffd600;
@@ -209,8 +218,229 @@ li::before {
   vertical-align: middle;
   margin-right: 0.5em;
 }
-
 li {
   display: flex;
   align-items: center;
 }
+.winsection {
+  display: none;
+}
+.resultbox {
+  width: 70%;
+  display: none;
+  margin-top: 5rem;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+.newgame,
+.playagain {
+  width: 11.5rem;
+  font-family: "Roboto", sans-serif;
+  height: 2.7rem;
+  color: #6b6b6b;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  cursor: pointer;
+  border-radius: 9px;
+  background: #fff;
+  border: none;
+}
+
+.playagain:hover,
+.newgame:hover {
+  background-color: rgb(177, 207, 44);
+  cursor: pointer;
+}
+
+.resultbox img {
+  width: 14rem;
+  z-index: 2;
+  position: relative;
+  height: 14rem;
+  transform: translate(0%, 0%);
+}
+
+.heading {
+  font-size: 1.3625rem;
+  color: #fff;
+  letter-spacing: 0.10625rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.resultbox .handimage {
+  display: flex;
+  justify-content: center;
+}
+.winresultbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  margin-bottom: 3rem;
+}
+.winresultbox h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 2.4375rem;
+  font-style: normal;
+  letter-spacing: 0.24375rem;
+  margin-bottom: 0%;
+}
+.winresultbox p {
+  text-align: center;
+  color: #fff;
+  font-size: 1.5625rem;
+  letter-spacing: 0.15625rem;
+}
+
+.cupsection {
+  position: relative;
+  width: 100%;
+  height: 52vh;
+  overflow: hidden;
+  font-size: 91px;
+  background-image: url("assets/backgroundcup.svg");
+  margin-top: 4rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+}
+.stars {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  top: 47%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+}
+.cup {
+  top: 30.61%;
+  bottom: 47.15%;
+  width: inherit;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+  height: 30vh;
+}
+.summarysection {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.summarysection h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 5rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 10px;
+}
+
+.summarysection p {
+  color: #fff;
+  text-align: center;
+  font-size: 2.3625rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 4px;
+  margin-top: 0.5rem;
+  margin-bottom: 3rem;
+}
+.gg {
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  width: 20rem;
+  height: 24rem;
+  padding-top: 9rem;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: fixed;
+  top: 32%;
+}
+.gg h1 {
+  letter-spacing: 4px;
+  font-weight: 700;
+  font-size: 2.8rem;
+  font-family: "Roboto", sans-serif;
+}
+.gg h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 1.2rem;
+  font-family: "Roboto", sans-serif;
+  visibility: visible;
+}
+.usercontainer {
+  display: flex;
+  height: 25rem;
+  width: 30rem;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  left: 9%;
+}
+.pcpicked {
+  height: 25rem;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  right: 9%;
+}
+
+.pulse1 span {
+  position: inherit;
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  background: rgba(0, 141, 3, 0.858);
+  top: 7.5rem;
+  left: 10rem;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: pulseAnimation 4s ease-out infinite;
+  animation-delay: calc(1s * var(--i));
+}
+
+@keyframes pulseAnimation {
+  100% {
+    opacity: 0;
+    transform: scale(2.8);
+  }
+}
+
+.pulse2 span {
+  position: inherit;
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  background: rgba(0, 141, 3, 0.858);
+  top: 7.5rem;
+  left: 10rem;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: pulseAnimation 4s ease-out infinite;
+  animation-delay: calc(1s * var(--i));
+}
+
+.pulse2{
+  visibility: hidden; 
+ }
+ .pulse1{
+  visibility: hidden;
+ }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Pick one - Rock Paper scissor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +22,7 @@
         <div class="score">
           <div class="cscore">
             <p>COMPUTER SCORE</p>
-            <h1 id="cSCORE">15</h1>
+            <h1 id="cSCORE">0</h1>
           </div>
           <div class="uscore">
             <p>
@@ -33,23 +33,20 @@
           </div>
         </div>
       </div>
-
       <!-- playgame section -->
-
       <div class="handchoices">
-        <div class="hand rock">
-          <img src="assets/rock.png" alt="r" />
+        <div class="userchoice">
+          <img src="assets/rock.png" alt="r" id="rock" />
         </div>
 
-        <div class="hand scissor">
-          <img src="assets/scissor.png" alt="s" />
+        <div class="userchoice">
+          <img src="assets/scissor.png" alt="s" id="scissor" />
         </div>
 
-        <div class="hand paper">
-          <img src="assets/paper.png" alt="p" />
+        <div class="userchoice">
+          <img src="assets/paper.png" alt="p" id="paper" />
         </div>
       </div>
-
       <!--Rules Section-->
       <div class="rulecontainer">
         <div class="rulepage">
@@ -60,7 +57,7 @@
                 Rock beats scissors, scissors beat paper, and paper beats rock.
               </li>
               <li>
-                Agree ahead of time whether you’ll count off “rock, paper,
+                Agree ahead of time whether you'll count off “rock, paper,
                 scissors, shoot” or just “rock, paper, scissors.”
               </li>
               <li>
@@ -73,13 +70,57 @@
               </li>
             </ul>
             <button class="close-btn">
-              <img src="assets/closegrule.png" alt="Close Button" onclick="closerule()"/>
+              <img src="assets/closegrule.png" alt="Close Button" />
             </button>
           </div>
         </div>
       </div>
       <div class="rulebox">
-        <button class="rulebutton" onclick="openrule()">RULES</button>
+        <button class="rulebutton">RULES</button>
+        <button class="next">NEXT</button>
+      </div>
+      <div class="resultbox">
+        <div class="usercontainer">
+          <h1 class="heading">YOU PICKED</h1>
+          <div class="pulse1">
+            <span class="pulsehide" style="--i: 0"></span>
+            <span class="pulsehide" style="--i: 1"></span>
+            <span class="pulsehide" style="--i: 2"></span>
+            <span class="pulsehide" style="--i: 3"></span>
+            <span class="pulsehide" style="--i: 4"></span>
+            <span class="pulsehide" style="--i: 5"></span>
+          </div>
+          <img id="userpicimage" alt="" />
+        </div>
+        <div class="gg">
+          <h1 id="changehead1">YOU WIN</h1>
+          <h2 id="changehead2">AGAINST PC</h2>
+          <button class="playagain">PLAY AGAIN</button>
+        </div>
+        <div class="pcpicked">
+          <h1 class="heading">PC PICKED</h1>
+          <div class="pulse2">
+            <span class="pulsehide" style="--i: 0"></span>
+            <span class="pulsehide" style="--i: 1"></span>
+            <span class="pulsehide" style="--i: 2"></span>
+            <span class="pulsehide" style="--i: 3"></span>
+            <span class="pulsehide" style="--i: 4"></span>
+            <span class="pulsehide" style="--i: 5"></span>
+          </div>
+          <img id="pcpick" alt="" />
+        </div>
+      </div>
+      <div class="winsection">
+        <div class="cupsection">
+          <div class="cup">
+            <img src="assets/wincup.svg" />
+          </div>
+        </div>
+        <div class="summarysection">
+          <h1>HURRAY!!</h1>
+          <p>YOU WON THE GAME</p>
+          <button class="newgame">PLAY AGAIN</button>
+        </div>
       </div>
     </div>
     <script src="file.js"></script>
