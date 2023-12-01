@@ -15,6 +15,7 @@
   </head>
   <body>
     <div class="container">
+      <!-- score board section -->
       <div class="top">
         <div class="title">
           <p>ROCK PAPER SCISSORS</p>
@@ -38,11 +39,9 @@
         <div class="userchoice">
           <img src="assets/rock.png" alt="r" id="rock" />
         </div>
-
         <div class="userchoice">
           <img src="assets/scissor.png" alt="s" id="scissor" />
         </div>
-
         <div class="userchoice">
           <img src="assets/paper.png" alt="p" id="paper" />
         </div>
@@ -75,13 +74,16 @@
           </div>
         </div>
       </div>
+      <!-- buttons showing below  -->
       <div class="rulebox">
         <button class="rulebutton">RULES</button>
         <button class="next">NEXT</button>
       </div>
+      <!-- result container when user wins lost or game tied -->
       <div class="resultbox">
         <div class="usercontainer">
           <h1 class="heading">YOU PICKED</h1>
+          <!-- animation for winner -->
           <div class="pulse1">
             <span class="pulsehide" style="--i: 0"></span>
             <span class="pulsehide" style="--i: 1"></span>
@@ -99,6 +101,7 @@
         </div>
         <div class="pcpicked">
           <h1 class="heading">PC PICKED</h1>
+          <!-- animation for winner -->
           <div class="pulse2">
             <span class="pulsehide" style="--i: 0"></span>
             <span class="pulsehide" style="--i: 1"></span>
@@ -110,6 +113,7 @@
           <img id="pcpick" alt="" />
         </div>
       </div>
+      <!-- hurray page when next is clicked -->
       <div class="winsection">
         <div class="cupsection">
           <div class="cup">

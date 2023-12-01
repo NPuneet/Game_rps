@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const htop = document.querySelector("#changehead1");
   const hbottom = document.querySelector("#changehead2");
 
+  //  saving scores to local storage and retrieving from local
   function saveToLocal() {
     localStorage.setItem("pcScore", pcscore.innerHTML);
     localStorage.setItem("userScore", userscore.innerHTML);
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   retrieveLocal();
 
+  //  functionality to next  button
   next.addEventListener("click", () => {
     choice.style.display = "none";
     result.style.display = "none";
@@ -38,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
     next.style.display = "none";
     winpage.style.display = "block";
   });
+
+  // logic for new game button
   const play = () => {
     topelement.style.display = "flex";
     choice.style.display = "flex";
@@ -52,74 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
     paper: "assets/paper.png",
     scissor: "assets/scissor.png",
   };
-  const pickPc = () => {
-    let a = ["rock", "paper", "scissor"];
-    let b = a[Math.floor(Math.random() * 3)];
-    userpc.src = handOptions[b];
-    return b;
-  };
-  const pickUser = (hand) => {
-    choice.style.display = "none";
-    result.style.display = "flex";
-    userpic.src = handOptions[hand];
-    const compchoice = pickPc();
-    compare(hand, compchoice);
-  };
-  selectall.forEach((element) => {
-    element.addEventListener("click", (event) => {
-      const value = event.target.getAttribute("id");
-      if (value) {
-        pickUser(value);
-      }
-    });
-  });
-  close.addEventListener("click", () => (rulebox.style.display = "none"));
-  open.addEventListener("click", () => (rulebox.style.display = "flex"));
 
-  function pulseShowUser() {
-    let pulse1 = document.querySelector(".pulse1");
-    pulse1.style.visibility = "visible";
-  }
-  function pulseShowComp() {
-    let pulse2 = document.querySelector(".pulse2");
-    pulse2.style.visibility = "visible";
-  }
-
-  function pulseHideUser() {
-    let pulse1 = document.querySelector(".pulse1");
-    pulse1.style.visibility = "hidden";
-  }
-  function pulseHideComp() {
-    let pulse2 = document.querySelector(".pulse2");
-    pulse2.style.visibility = "hidden";
-  }
-
-  const tie = () => {
-    htop.innerHTML = "TIE UP";
-    playagain.innerHTML = "REPLAY";
-    hbottom.style.visibility = "hidden";
-    next.style.display = "none";
-    pulseHideUser();
-    pulseHideComp();
-  };
-  const lost = () => {
-    ++pcscore.innerHTML;
-    htop.innerHTML = "YOU LOST";
-    playagain.innerHTML = "PLAY AGAIN";
-    hbottom.style.visibility = "visible";
-    next.style.display = "none";
-    pulseShowComp();
-    pulseHideUser();
-  };
-  const won = () => {
-    ++userscore.innerHTML;
-    htop.innerHTML = "YOU WIN";
-    playagain.innerHTML = "PLAY AGAIN";
-    hbottom.style.visibility = "visible";
-    next.style.display = "block";
-    pulseShowUser();
-    pulseHideComp();
-  };
+  // conditional for comparison what happens according to the rules
   function compare(hand, compchoice) {
     if (hand === "rock" && compchoice === "rock") {
       tie();
@@ -142,5 +80,86 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     saveToLocal();
   }
+
+  // select user hand logic
+  const pickUser = (hand) => {
+    choice.style.display = "none";
+    result.style.display = "flex";
+    userpic.src = handOptions[hand];
+    const compchoice = pickPc();
+
+    // this function takews input and evaluates the condition to be appliedF
+    compare(hand, compchoice);
+  };
+  selectall.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      const value = event.target.getAttribute("id");
+      if (value) {
+        pickUser(value);
+      }
+    });
+  });
+
+  // select computer hand logic
+  const pickPc = () => {
+    let a = ["rock", "paper", "scissor"];
+    let b = a[Math.floor(Math.random() * 3)];
+    userpc.src = handOptions[b];
+    return b;
+  };
+
+  // logic for hiding and showing rules page and hiding rule page
+  close.addEventListener("click", () => (rulebox.style.display = "none"));
+  open.addEventListener("click", () => (rulebox.style.display = "flex"));
+
+  // showing winning animation to the winning user
+  const pulseShowUser = () => {
+    let pulse1 = document.querySelector(".pulse1");
+    pulse1.style.visibility = "visible";
+  };
+  const pulseShowComp = () => {
+    let pulse2 = document.querySelector(".pulse2");
+    pulse2.style.visibility = "visible";
+  };
+  const pulseHideUser = () => {
+    let pulse1 = document.querySelector(".pulse1");
+    pulse1.style.visibility = "hidden";
+  };
+  const pulseHideComp = () => {
+    let pulse2 = document.querySelector(".pulse2");
+    pulse2.style.visibility = "hidden";
+  };
+
+  // function when game ties
+  const tie = () => {
+    htop.innerHTML = "TIE UP";
+    playagain.innerHTML = "REPLAY";
+    hbottom.style.visibility = "hidden";
+    next.style.display = "none";
+    pulseHideUser();
+    pulseHideComp();
+  };
+
+  // function when computer wins/user lost
+  const lost = () => {
+    ++pcscore.innerHTML;
+    htop.innerHTML = "YOU LOST";
+    playagain.innerHTML = "PLAY AGAIN";
+    hbottom.style.visibility = "visible";
+    next.style.display = "none";
+    pulseShowComp();
+    pulseHideUser();
+  };
+
+  // function when user won
+  const won = () => {
+    ++userscore.innerHTML;
+    htop.innerHTML = "YOU WIN";
+    playagain.innerHTML = "PLAY AGAIN";
+    hbottom.style.visibility = "visible";
+    next.style.display = "block";
+    pulseShowUser();
+    pulseHideComp();
+  };
   saveToLocal();
 });
